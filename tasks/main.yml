@@ -1,0 +1,24 @@
+---
+# file: tasks/main.yml
+# Top-level installer for uWSGI.
+#
+# @see http://uwsgi-docs.readthedocs.org/en/latest/Install.html
+#
+
+- name: install pip, if necessary
+  include: install-pip.yml
+
+- name: install python-dev, if necessary
+  include: apt-install-python-dev.yml
+  when: ansible_pkg_mgr == "apt"
+
+- name: install python-devel, if necessary
+  include: yum-install-python-devel.yml
+  when: ansible_pkg_mgr == "yum"
+
+
+
+
+- name: install uWSGI via pip
+  sudo: True
+  pip: name=uwsgi version={{ uwsgi_version }}  state=present

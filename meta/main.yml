@@ -1,0 +1,30 @@
+---
+# meta/main.yml
+
+galaxy_info:
+    author: williamyeh
+    description: Install uWSGI
+    license: Apache
+    min_ansible_version: 1.6
+
+    platforms:
+
+        - name: Ubuntu
+          versions:
+              - precise
+              - trusty
+
+        - name: Debian
+          versions:
+              - wheezy
+
+        - name: EL
+          versions:
+              - 6
+              - 7
+
+    categories:
+        - development
+        - web
+
+dependencies: []

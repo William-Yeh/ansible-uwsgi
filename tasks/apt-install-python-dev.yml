@@ -1,0 +1,20 @@
+---
+# file: tasks/apt-install-python-dev.yml
+# Mini installer for python-dev.
+#
+
+- name: check default python version
+  shell: "python --version 2>&1 | awk '{print $2}'"
+  register: python_installed_version
+
+- name: install python-dev
+  sudo: True
+  apt: name={{ item }}  update_cache=yes  state=present force=yes
+  with_items: [ "python-dev" ]
+  when: python_installed_version.stdout | version_compare('3.0', '<')
+
+- name: install python3-dev
+  sudo: True
+  apt: name={{ item }}  update_cache=yes  state=present force=yes
+  with_items: [ "python3-dev" ]
+  when: python_installed_version.stdout | version_compare('3.0', '>=')
