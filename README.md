@@ -5,7 +5,7 @@ williamyeh.uwsgi for Ansible Galaxy
 
 ## Summary
 
-Role name in Ansible Galaxy: **[williamyeh.uwsgi](https://galaxy.ansible.com/list#/roles/XXXX)**
+Role name in Ansible Galaxy: **[williamyeh.uwsgi](https://galaxy.ansible.com/list#/roles/2262)**
 
 This Ansible role has the following features for uWSGI:
 
