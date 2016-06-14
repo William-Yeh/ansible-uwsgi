@@ -20,5 +20,9 @@
 
 
 - name: install uWSGI via pip
-  sudo: True
   pip: name=uwsgi version={{ uwsgi_version }}  state=present
+  when: uwsgi_version is defined
+
+- name: install uWSGI via pip
+  pip: name=uwsgi state=present
+  when: uwsgi_version is not defined

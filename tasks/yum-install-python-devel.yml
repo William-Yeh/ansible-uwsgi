@@ -6,9 +6,9 @@
 - name: check default python version
   shell: "python --version 2>&1 | awk '{print $2}'"
   register: python_installed_version
+  changed_when: false
 
 - name: install python-devel
-  sudo: True
   yum: name={{ item }}  state=present
   with_items: [ "python-devel", "gcc" ]
   when: python_installed_version.stdout | version_compare('3.0', '<')

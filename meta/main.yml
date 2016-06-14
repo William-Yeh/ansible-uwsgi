@@ -5,7 +5,7 @@ galaxy_info:
     author: williamyeh
     description: Install uWSGI
     license: MIT
-    min_ansible_version: 1.6
+    min_ansible_version: 2.0
 
     platforms:
 
@@ -16,6 +16,7 @@ galaxy_info:
 
         - name: Debian
           versions:
+              - jessie
               - wheezy
 
         - name: EL
@@ -23,7 +24,7 @@ galaxy_info:
               - 6
               - 7
 
-    categories:
+    galaxy_tags:
         - development
         - web
 

@@ -1,0 +1,12 @@
+---
+# file: handlers/main.yml
+#
+
+- name: restart uwsgi
+  service: name=uwsgi state=restarted
+
+- name: reload uwsgi
+  service: name=uwsgi state=reloaded
+
+- name: stop uwsgi
+  service: name=uwsgi state=stopped

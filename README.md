@@ -5,7 +5,7 @@ williamyeh.uwsgi for Ansible Galaxy
 
 ## Summary
 
-Role name in Ansible Galaxy: **[williamyeh.uwsgi](https://galaxy.ansible.com/list#/roles/2262)**
+Role name in Ansible Galaxy: **[williamyeh.uwsgi](https://galaxy.ansible.com/williamyeh/uwsgi/)**
 
 This Ansible role has the following features for uWSGI:
 
@@ -19,7 +19,12 @@ This Ansible role has the following features for uWSGI:
 
 ### Mandatory variables
 
-Variables needed to be defined in user's playbook:
+None.
+
+
+### Optional variables
+
+User-configurable defaults:
 
 ```yaml
 uwsgi_version
@@ -29,19 +34,18 @@ For example:
 
 ```yaml
 # specific version
-uwsgi_version: 2.0.8
-
-
-# don't care version
-uwsgi_version: ~
+uwsgi_version: 2.0.13.1
 ```
 
 
 
-### Optional variables
+## Handlers
 
-User-configurable defaults: None.
+- `restart uwsgi`
 
+- `reload uwsgi`
+
+- `stop uwsgi`
 
 
 
@@ -64,12 +68,9 @@ Simple example:
 # file: simple-playbook.yml
 
 - hosts: all
-
+  become: true
   roles:
     - williamyeh.uwsgi
-
-  vars:
-    uwsgi_version: 2.0.8
 ```
 
 
@@ -83,12 +84,12 @@ More practical example:
 # file: complex-playbook.yml
 
 - hosts: all
-
+  become: true
   roles:
     - williamyeh.uwsgi
 
   vars:
-    uwsgi_version: 2.0.8
+    uwsgi_version: 2.0.13.1
 
   tasks:
     - name: Copy project-specific config file(s) for uWSGI 
@@ -111,8 +112,8 @@ Licensed under the MIT License. See the [LICENSE file](LICENSE) for details.
 
 Some roles on Ansible Galaxy inspired me:
 
-  - [theonion.uwsgi-emperor](https://galaxy.ansible.com/list#/roles/1917)
-  - [gdamjan.uwsgi](https://galaxy.ansible.com/list#/roles/90)
+  - [theonion.uwsgi-emperor](https://galaxy.ansible.com/theonion/uwsgi-emperor/)
+  - [gdamjan.uwsgi](https://galaxy.ansible.com/gdamjan/uwsgi/)
 
 Also, the handling of pip was borrowed from:
 
