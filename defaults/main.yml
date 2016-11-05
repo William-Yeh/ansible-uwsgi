@@ -11,3 +11,4 @@
 #
 
 #uwsgi_version:
+pip_executable: pip
