@@ -28,6 +28,7 @@ User-configurable defaults:
 
 ```yaml
 uwsgi_version
+pip_executable
 ```
 
 For example:
@@ -90,6 +91,7 @@ More practical example:
 
   vars:
     uwsgi_version: 2.0.13.1
+    pip_executable: pip3
 
   tasks:
     - name: Copy project-specific config file(s) for uWSGI 

@@ -20,9 +20,9 @@
 
 
 - name: install uWSGI via pip
-  pip: name=uwsgi version={{ uwsgi_version }}  state=present
+  pip: name=uwsgi version={{ uwsgi_version }} state=present executable={{ pip_executable }}
   when: uwsgi_version is defined
 
 - name: install uWSGI via pip
-  pip: name=uwsgi state=present
+  pip: name=uwsgi state=present executable={{ pip_executable }}
   when: uwsgi_version is not defined
